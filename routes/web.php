@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mail', 'MailController@mail')->name('mail');
 
 Route::resource('article', 'ArticleController', ['only' => ['index', 'create', 'store']]);
+Route::resource('ucenik', 'UcenikController', ['only' => ['index', 'create', 'store']]);
