@@ -8,7 +8,7 @@
                     <div class="panel-heading">Novi artikl</div>
 
                     <div class="panel-body">
-                        {{ Form::open(['route' => 'article.store', 'method' => 'POST']) }}
+                        {{ Form::open(['route' => ['article.update', $article->id], 'method' => 'PUT']) }}
                         @include('articles.form')
                         {{ Form::close() }}
                     </div>

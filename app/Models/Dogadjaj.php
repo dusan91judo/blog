@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Skola;
 use Illuminate\Database\Eloquent\Model;
 
-class Ucenik extends Model
+class Dogadjaj extends Model
 {
-    protected $table = 'ucenici';
+    protected $table = 'dogadjaji';
 
     public function skola()
     {

@@ -20,5 +20,25 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mail', 'MailController@mail')->name('mail');
 
-Route::resource('article', 'ArticleController', ['only' => ['index', 'create', 'store']]);
-Route::resource('ucenik', 'UcenikController', ['only' => ['index', 'create', 'store']]);
+Route::resource('article', 'ArticleController');
+Route::resource('ucenik', 'UcenikController');
+Route::resource('skola', 'SkolaController');
+Route::resource('profesor', 'ProfesorController');
+Route::resource('biblioteka', 'BibliotekaController');
+Route::resource('knjiga', 'KnjigaController');
+Route::resource('dogadjaj', 'DogadjajController');
+
+
+
+
+Route::get('test', function () {
+    return view('articles.test');
+});
+
+Route::resource('skola.napomena', 'NapomenaController', [
+    'only' => ['store', 'create', 'destroy']
+]);
+
+Route::get('skola/{skola}/napomena/edit', 'NapomenaController@edit')->name('skola.napomena.edit');
+
+

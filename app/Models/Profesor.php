@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ucenik extends Model
+class Profesor extends Model
 {
-    protected $table = 'ucenici';
+    protected $table = 'profesori';
 
     public function skola()
     {

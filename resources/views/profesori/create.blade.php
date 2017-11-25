@@ -11,14 +11,14 @@
                         <p style="color:red;">{{ $error }}</p>
                     @endforeach
                     <div class="panel-body">
-                        {{ Form::open(['route' => 'ucenik.store', 'method' => 'POST']) }}
+                        {{ Form::open(['route' => 'profesor.store', 'method' => 'POST']) }}
                         <div class="form-group required {{ $errors->first('ime', 'has-error') }}">
-                            {{ Form::label('ime', 'Ime ucenika', ['class' => 'control-label']) }}
+                            {{ Form::label('ime', 'Ime profesora', ['class' => 'control-label']) }}
                             {{ Form::text('ime', '', ['class' => 'form-control']) }}
                         </div>
 
                         <div class="form-group required {{ $errors->first('prezime', 'has-error') }}">
-                            {{ Form::label('prezime', 'Prezime ucenika', ['class' => 'control-label']) }}
+                            {{ Form::label('prezime', 'Prezime profesora', ['class' => 'control-label']) }}
                             {{ Form::text('prezime', '', ['class' => 'form-control']) }}
                         </div>
                         <div class="form-group required {{ $errors->first('godiste', 'has-error') }}">

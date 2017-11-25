@@ -10,8 +10,11 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::with('user')->get();
-        dd($articles->toArray());
-    }
+
+        return view('articles.index', [
+            'articles' => $articles
+        ]);
+    }   
 
     public function create()
     {
@@ -30,4 +33,44 @@ class ArticleController extends Controller
 
         return redirect()->route('article.index');
     }
-}
+
+    public function show($id)
+    {
+        $article = Article::where('id', '=', $id)->first();
+
+        return view('articles.show', [
+            'article' => $article
+        ]);
+    }
+
+    public function edit(Request $request, $id)
+    {
+        $article = Article::where('id', '=', $id)->first();
+
+        return view('articles.edit', [
+            'article' => $article
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $article = Article::where('id', '=', $id)->first();
+        $article->title = $request->title;
+        $article->text = $request->text;
+
+        $article->save();
+
+        return redirect()->route('article.show', ['id' => $id]);
+    }
+
+    public function destroy($id)
+    {
+        // ISTO
+        $article = Article::where('id', '=', $id)->first();
+
+        $article->delete();
+
+//        Article::destroy($id);
+
+        return redirect()->route('article.index');
+    }}
